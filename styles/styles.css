@@ -1,0 +1,22 @@
+.pääsivu{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.puhelinluettelo table {
+    border-collapse: collapse;
+    width: 60%;
+    margin: 20px auto;
+    background-color: white;
+}
+.puhelinluettelo th  {
+    background-color: #7e7e7e;
+    color: white;
+    padding: 12px;
+    border: 1px solid #000000;
+}
+.puhelinluettelo td  {
+    padding: 10px;
+    border: 1px solid #000000;
+    text-align: center;
+}

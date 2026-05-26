@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $('[name="submit"]').click(function () {
+            let nimi = $("#nimi").val();
+            $.getJSON("http://localhost:3000/data",
+                function(data) {
+                    data.forEach(function(henkilö){
+                        if(henkilö.nimi === nimi){
+                            $("#puhelin").val(henkilö.puhelin);
+                        }
+                    })
+                });
+
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form id="form" name="form">
+      <th>Syötä nimi:</th>
+      <td>
+        <input
+          name="nimi"
+          id="nimi"
+          type="text"
+          value=""
+          maxlength="35"
+          size="35"
+        />
+      </td>
+      <td>
+        <input
+          name="puhelin"
+          id="puhelin"
+          type="text"
+          value=""
+          maxlength="35"
+          size="35"
+        />
+      </td>
+
+      <td>
+        <input name="submit" type="button" value="Hae puhelinnumero" />
+      </td>
+    </form>
+    <a href="index.html">
+        Takaisin pääsivulle
+    </a>
+  </body>
+</html>

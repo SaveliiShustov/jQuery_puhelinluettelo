@@ -1,0 +1,36 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">  
+</script>
+<link rel="stylesheet" href="../styles/styles.css"> 
+</head>
+<body>
+    <div class="puhelinluettelo">
+        <script>
+            $(document).ready(function () {
+            $.getJSON("http://localhost:3000/data",
+                function(data) {
+                let table =
+                "<table>" +
+                "<tr>" +
+                "<th>#</th>"+
+                "<th>Nimi</th>" +
+                "<th>Puhelin</th>" +
+                "</tr>";
+                data.forEach(function(henkilö) {
+                    table +=
+                    "<tr>" +
+                    "<td>" + henkilö.id + "</td>" + 
+                    "<td>" + henkilö.nimi + "</td>" +
+                    "<td>" + henkilö.puhelin + "</td>" +
+                    "</tr>";
+                });
+                table += "</table>";
+                $(".puhelinluettelo").html(table);
+                });
+            });
+        </script>
+    </div>
+    <a href="index.html">
+        Takaisin pääsivulle
+    </a>
+</body>
